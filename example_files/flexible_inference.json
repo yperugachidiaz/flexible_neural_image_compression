@@ -1,0 +1,57 @@
+{
+    "train_lambda":     0.01,
+    "cycle_length":     100,
+    "print_freq":       100,
+    "batch_size":       1,
+    "image_size":       256,
+    "seed":             222,
+    "save_name": "example_refining_latents",
+    "pretrain": "path_to_pretrained_model",
+    "path_train": {
+          "train_imagenet": "path_to_imagenet"
+      },
+    "tot_batches": 24,
+    "tot_inference_iterations": 2000,
+    "optimizer": {
+        "name": "adam",
+        "lr": 0.005,
+        "momentum": 0
+    },
+    "improving_methods": {
+        "ste": true,
+        "unoise": false,
+        "danneal": false,
+        "sga": false
+    },
+    "dev_options": {
+        "kodak": true,
+        "tecnick": false,
+        "pathology": false,
+        "path_test": {
+            "kodak": "path_to_kodak",
+            "tecnick": "path_to_tecnick",
+            "pathology": "path_to_pathology"
+      },
+        "improving_methods": {
+            "temp_ste": false,
+            "temp_unoise": false,
+            "temp_uste": false,
+            "gnoise": false,
+            "temp_gnoise": false,
+            "sga_logits": false,
+            "sga_logits_3c": true
+        },
+        "temp_rate": 1e-3,
+        "gnoise_sigma": 0.25,
+        "sga_logits_params": {
+            "logits": "log_ssl_a_factor_pow",
+            "ub": 1.0
+        },
+        "augmented_loss": false,
+        "temp_schedule": "exp",
+        "scale_factor": 1.4,
+        "3c_power": 1.4,
+        "3c_factor": 0.98,
+        "save_final": false
+    }
+}
